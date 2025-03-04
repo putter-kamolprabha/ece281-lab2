@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: USAFA ECE
+-- Engineer: Putter Kamolprabha
 -- 
 -- Create Date: 02/23/2025 07:45:09 PM
 -- Design Name: 
 -- Module Name: sevenseg_decoder - Behavioral
--- Project Name: 
+-- Project Name: Lab 2 
 -- Target Devices: 
 -- Tool Versions: 
 -- Description: 
@@ -37,8 +37,29 @@ entity sevenseg_decoder is
 end sevenseg_decoder;
 
 architecture Behavioral of sevenseg_decoder is
-
+signal w_seg : STD_LOGIC_VECTOR (6 downto 0);
 begin
 
+with i_Hex select 
+w_seg <=   "0111111" when x"0",
+           "0000110" when x"1", 
+           "1011011" when x"2",
+           "1001111" when x"3",
+           "1100110" when x"4",
+           "1101101" when x"5", 
+           "1111101" when x"6", 
+           "0000111" when x"7",  
+           "1111111" when x"8",    
+           "1101111" when x"9", 
+           "1110111" when x"A",
+           "1111100" when x"B", 
+           "1011000" when x"C", 
+           "1011110" when x"D", 
+           "1111001" when x"E", 
+           "1110001" when x"F",
+           "0000000" when others;
+ 
+           
+o_seg_n <= NOT w_seg; --active low
 
 end Behavioral;
