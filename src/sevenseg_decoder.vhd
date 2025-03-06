@@ -40,6 +40,7 @@ architecture Behavioral of sevenseg_decoder is
 signal w_seg : STD_LOGIC_VECTOR (6 downto 0);
 begin
 
+
 with i_Hex select 
 w_seg <=   "0111111" when x"0",
            "0000110" when x"1", 
